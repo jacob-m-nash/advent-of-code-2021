@@ -25,17 +25,18 @@ namespace day1
 
         private static int GetNumberDepthIncrese(List<int> depths)
         {
-            int previousDepth = depths[0];
+            int previousDepthsSum = depths[0] + depths[1] + depths[2];
+            
             int numberOfDepthIncrese = 0;
 
-            for(int i = 1; i < depths.Count; i++)
+            for(int i = 3; i < depths.Count; i++)
             {
-                int currentDepth = depths[i];
-                if(previousDepth < currentDepth)
+                int currentDepthsSum = depths[i-2] + depths[i - 1] + depths[i];
+                if(previousDepthsSum < currentDepthsSum)
                 {
                     numberOfDepthIncrese++;
                 }
-                previousDepth = currentDepth;
+                previousDepthsSum = currentDepthsSum;
 
             }
 
