@@ -11,6 +11,8 @@ namespace day2
         internal int horizontalPos { get; private set; } = 0;
         internal int verticalPos { get; private set; } = 0;
 
+        internal int aim { get; private set; } = 0;
+
 
         internal void ExicuteCommands(List<(string, int)> commands)
         {
@@ -20,12 +22,13 @@ namespace day2
                 {
                     case "forward":
                         horizontalPos += command.unit;
+                        verticalPos += aim * command.unit;
                         break;
                     case "up":
-                        verticalPos -= command.unit;
+                        aim -= command.unit;
                         break;
                     case "down":
-                        verticalPos += command.unit;
+                        aim += command.unit;
                         break;
                     default:
                         break;
